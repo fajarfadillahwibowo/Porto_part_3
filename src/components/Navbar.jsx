@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { personalInfo, navLinks } from '../data/portfolioData';
+import { personalInfo } from '../data/portfolioData';
 import { Icon } from './TechIcons';
 import CvModal from './CvModal';
+import { useLanguageTheme } from '../context/LanguageThemeContext';
 import '../styles/navbar.css';
 
-export default function Navbar() {
+export default function Navbar({ onOpenCv }) {
+  const { lang, setLang, theme, toggleTheme, t } = useLanguageTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isCvModalOpen, setIsCvModalOpen] = useState(false);
+  const [internalCvModalOpen, setInternalCvModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('beranda');
+
+  // Daftar navigasi dinamis berbasis kamus multibahasa (tanpa 'tentang' sesuai permintaan)
+  const navItems = [
+    { id: 'beranda', label: t.nav.beranda },
+    { id: 'keahlian', label: t.nav.keahlian },
+    { id: 'proyek', label: t.nav.proyek },
+    { id: 'sertifikat', label: t.nav.sertifikat || (lang === 'id' ? 'Sertifikat' : 'Certificates') },
+    { id: 'kontak', label: t.nav.kontak },
+  ];
+
+  const handleOpenCv = () => {
+    if (onOpenCv) {
+      onOpenCv();
+    } else {
+      setInternalCvModalOpen(true);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      // Toggle sticky style when scrolled beyond 20px
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
@@ -20,13 +38,13 @@ export default function Navbar() {
       }
 
       // Update active nav link based on scroll position
-      const sections = navLinks.map(link => document.getElementById(link.id));
+      const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section && section.offsetTop <= scrollPos) {
-          setActiveSection(navLinks[i].id);
+          setActiveSection(navItems[i].id);
           break;
         }
       }
@@ -34,7 +52,7 @@ export default function Navbar() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navItems]);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -64,32 +82,71 @@ export default function Navbar() {
           {/* Desktop Nav Items */}
           <nav aria-label="Navigasi Utama">
             <ul className="nav-menu-desktop">
-              {navLinks.map((link) => (
-                <li key={link.id}>
+              {navItems.map((item) => (
+                <li key={item.id}>
                   <a
-                    href={`#${link.id}`}
-                    className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
-                    id={`nav-link-${link.id}`}
+                    href={`#${item.id}`}
+                    className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                    id={`nav-link-${item.id}`}
                   >
-                    {link.label}
+                    {item.label}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Actions (Lihat CV & Mobile Toggle) */}
+          {/* Actions (Language Switcher, Theme Toggle, CV Button, Mobile Toggle) */}
           <div className="navbar-actions">
-            {/* Tombol Lihat CV (Membuka Pratinjau Terlebih Dahulu) */}
+            
+            {/* Pilihan Bahasa Modern: ID | EN */}
+            <div className="lang-switcher-pill" role="group" aria-label="Pilihan Bahasa">
+              <button
+                type="button"
+                className={`lang-btn ${lang === 'id' ? 'active' : ''}`}
+                onClick={() => setLang('id')}
+                aria-label="Pilih Bahasa Indonesia"
+                title="Bahasa Indonesia"
+              >
+                ID
+              </button>
+              <span className="lang-divider">/</span>
+              <button
+                type="button"
+                className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+                onClick={() => setLang('en')}
+                aria-label="Select English Language"
+                title="English"
+              >
+                EN
+              </button>
+            </div>
+
+            {/* Pilihan Tema: Dark / Light Toggle */}
+            <button
+              type="button"
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? t.theme.toLight : t.theme.toDark}
+              title={theme === 'dark' ? t.theme.toLight : t.theme.toDark}
+            >
+              {theme === 'dark' ? (
+                <Icon name="sun" size={17} className="theme-icon sun-icon" />
+              ) : (
+                <Icon name="moon" size={17} className="theme-icon moon-icon" />
+              )}
+            </button>
+
+            {/* Tombol Lihat CV */}
             <button
               type="button"
               className="btn btn-cv"
               id="btn-preview-cv-nav"
-              onClick={() => setIsCvModalOpen(true)}
-              title="Pratinjau Curriculum Vitae"
+              onClick={handleOpenCv}
+              title={t.cvModal.title}
             >
               <Icon name="eye" size={16} />
-              <span>Lihat CV</span>
+              <span>{t.nav.cv}</span>
             </button>
 
             {/* Hamburger Menu Toggle (Mobile) */}
@@ -108,38 +165,76 @@ export default function Navbar() {
 
         {/* Mobile Drawer Menu */}
         <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`} id="mobile-navigation-drawer">
+          {/* Kontrol Bahasa & Tema di dalam Drawer Mobile */}
+          <div className="mobile-drawer-controls">
+            <div className="lang-switcher-pill">
+              <button
+                type="button"
+                className={`lang-btn ${lang === 'id' ? 'active' : ''}`}
+                onClick={() => setLang('id')}
+              >
+                ID (Indonesia)
+              </button>
+              <span className="lang-divider">/</span>
+              <button
+                type="button"
+                className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+                onClick={() => setLang('en')}
+              >
+                EN (English)
+              </button>
+            </div>
+
+            <button
+              type="button"
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? t.theme.toLight : t.theme.toDark}
+              title={theme === 'dark' ? t.theme.toLight : t.theme.toDark}
+            >
+              {theme === 'dark' ? (
+                <Icon name="sun" size={18} className="theme-icon sun-icon" />
+              ) : (
+                <Icon name="moon" size={18} className="theme-icon moon-icon" />
+              )}
+            </button>
+          </div>
+
           <ul className="mobile-nav-list">
-            {navLinks.map((link) => (
-              <li key={link.id}>
+            {navItems.map((item) => (
+              <li key={item.id}>
                 <a
-                  href={`#${link.id}`}
-                  className={`mobile-nav-link ${activeSection === link.id ? 'active' : ''}`}
+                  href={`#${item.id}`}
+                  className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >
-                  {link.label}
+                  {item.label}
                 </a>
               </li>
             ))}
           </ul>
+          
           <button
             type="button"
             className="btn btn-cv"
             onClick={() => {
               closeMobileMenu();
-              setIsCvModalOpen(true);
+              handleOpenCv();
             }}
           >
             <Icon name="eye" size={18} />
-            <span>Lihat & Unduh CV</span>
+            <span>{t.nav.cvDownload}</span>
           </button>
         </div>
       </header>
 
-      {/* Modal Pratinjau CV Sebelum Mengunduh */}
-      <CvModal
-        isOpen={isCvModalOpen}
-        onClose={() => setIsCvModalOpen(false)}
-      />
+      {/* Modal Pratinjau CV Sebelum Mengunduh (jika onOpenCv tidak disediakan oleh parent) */}
+      {!onOpenCv && (
+        <CvModal
+          isOpen={internalCvModalOpen}
+          onClose={() => setInternalCvModalOpen(false)}
+        />
+      )}
     </>
   );
 }

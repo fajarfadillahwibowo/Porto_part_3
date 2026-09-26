@@ -12,27 +12,29 @@ export const personalInfo = {
   shortName: "Fajar",
   nickname: "FFW",
 
-  // Headline & Profesi Utama
-  title: "Junior Web Developer & Full-Stack Developer",
-  tagline: "Pengembangan Aplikasi Web Berbasis Fullstack: Laravel, PHP, React.js & MySQL",
+  // Headline & Profesi Utama (Fokus pada kapabilitas rekayasa & nilai bisnis)
+  title: "Web Developer & Software Engineer",
+  tagline: "Merancang & Membangun Produk Web Berkinerja Tinggi, Skalabel, dan Berorientasi Pengguna",
   
   // Narasi singkat di Hero
   heroDescription: 
-    "Mahasiswa Informatika Universitas Nurul Huda dengan penguasaan pada pengembangan aplikasi web berbasis Fullstack (Laravel, PHP, JavaScript, React.js, Tailwind CSS, dan MySQL). Siap beradaptasi dan membangun solusi digital yang efisien.",
+    "Berdedikasi dalam menerjemahkan tantangan kompleks menjadi platform digital yang cepat, tangguh, dan elegan. Mengutamakan arsitektur sistem yang kokoh, kode yang bersih, serta pengalaman interaksi yang intuitif.",
 
-  // Narasi mendalam di Section 'Tentang Saya'
+  // Narasi mendalam di Profil Profesional
   aboutBio: [
-    "Saya adalah Mahasiswa Informatika di Universitas Nurul Huda dengan spesialisasi pengembangan web berbasis Fullstack, mencakup ekosistem Laravel, PHP, JavaScript, React.js, dan basis data MySQL.",
-    "Memiliki pengalaman langsung dalam merancang, membangun, dan mengoptimalkan sistem informasi web melalui proyek akademik, sistem penerimaan murid baru (SPMB), tata kelola data desa (PAMSIMAS), hingga proyek freelance.",
-    "Aktif memanfaatkan AI Tools (Antigravity IDE, Claude, ChatGPT, Gemini) untuk akselerasi riset teknis, debugging, dan peningkatan produktivitas rekayasa perangkat lunak."
+    "Saya adalah seorang Web Developer & Software Engineer yang berfokus pada rekayasa perangkat lunak modern end-to-end — mulai dari perancangan arsitektur basis data, logika alur kerja sistem, hingga detail estetika antarmuka pengguna.",
+    "Memiliki rekam jejak praktis dalam membangun sistem informasi skala institusi dan layanan masyarakat: seperti otomatisasi seleksi penerimaan murid baru, tata kelola data operasional terpusat, hingga platform pengarsipan digital.",
+    "Mengedepankan prinsip clean code, efisiensi komputasi, dan riset teknologi mutakhir untuk memastikan setiap solusi yang dibangun memiliki skalabilitas tinggi, keamanan optimal, serta siap beradaptasi dengan kebutuhan masa depan."
   ],
 
   // Metadata profil
-  location: "OKU Timur, Sumatera Selatan",
-  status: "Tersedia untuk Proyek & Full-Time",
+  location: "Indonesia",
+  status: "Terbuka untuk Proyek & Kolaborasi",
   experienceYears: "2+ Tahun",
-  projectsCompleted: "3+ Proyek Utama",
+  projectsCompleted: "3+ Solusi Teruji",
   clientSatisfaction: "100%",
+  phone: "085607746031",
+  phoneFormatted: "+62 856-0774-6031",
 
   // Link File CV Resmi
   cvUrl: "./CV-Fajar-Fadillah-Wibowo.pdf",
@@ -40,7 +42,7 @@ export const personalInfo = {
   // Path Foto Profil Utama
   profileImage: "./fajar-profile.jpg",
 
-  // Tautan Media Sosial & Kontak Langsung
+  // Tautan Media Sosial & Kontak Langsung (Nomor resmi: 085607746031)
   socials: {
     github: "https://github.com/fajarfadillahwibowo",
     linkedin: "https://linkedin.com/in/fajarfadillahwibowo",
@@ -51,9 +53,9 @@ export const personalInfo = {
 
 export const navLinks = [
   { id: "beranda", label: "Beranda" },
-  { id: "tentang", label: "Tentang" },
   { id: "keahlian", label: "Keahlian" },
   { id: "proyek", label: "Proyek" },
+  { id: "sertifikat", label: "Sertifikat" },
   { id: "kontak", label: "Kontak" }
 ];
 
@@ -180,3 +182,45 @@ export const projectsData = [
     featured: true
   }
 ];
+
+export const certificatesData = [
+  {
+    id: "nvidia-dli",
+    title: "Fundamentals of Deep Learning",
+    issuer: "NVIDIA Deep Learning Institute",
+    issuerLogo: "nvidia",
+    recipient: "Fajar Wibowo",
+    credentialId: "xwDZS4T_TVO340_avBYSRg",
+    issueDate: "14 Desember 2024",
+    issueDateEn: "December 14, 2024",
+    type: "Industry Certification",
+    badge: "Competency Certified",
+    badgeEn: "Competency Certified",
+    description: "Sertifikasi resmi kompetensi pemodelan Deep Learning dari NVIDIA DLI, mencakup teknik arsitektur saraf tiruan, computer vision, data augmentation, dan akselerasi komputasi GPU.",
+    descriptionEn: "Official competence certification in Deep Learning by NVIDIA DLI, covering neural network architectures, computer vision, data augmentation, and GPU hardware acceleration.",
+    image: "./cert-nvidia-deep-learning.png",
+    pdfUrl: "./cert-nvidia-deep-learning.pdf",
+    verifyUrl: "https://learn.nvidia.com/certificates?id=xwDZS4T_TVO340_avBYSRg",
+    tags: ["Deep Learning", "Neural Networks", "NVIDIA GPU", "AI", "Computer Vision"]
+  },
+  {
+    id: "magang-unuha",
+    title: "Sertifikat Kelulusan Magang Fakultas Sains & Teknologi",
+    issuer: "Universitas Nurul Huda (UNUHA)",
+    issuerLogo: "unuha",
+    recipient: "Fajar Fadillah Wibowo",
+    credentialId: "005/UNUHA.3/HK.04.00/I/2026",
+    issueDate: "09 Desember 2025",
+    issueDateEn: "December 09, 2025",
+    type: "Academic Internship",
+    badge: "Predikat LULUS (30 Hari / ±240 Jam)",
+    badgeEn: "PASSED (30 Days / ±240 Hours)",
+    description: "Sertifikat kelulusan program Magang Mandiri / Kampus Berdampak Fakultas Sains dan Teknologi Universitas Nurul Huda selama 30 hari kerja (± 240 jam kerja) dalam rekayasa teknologi dan implementasi sistem perangkat lunak.",
+    descriptionEn: "Official graduation certificate from the Faculty of Science & Technology, Universitas Nurul Huda for the 30-day (±240 hours) High-Impact Internship program in software engineering and system implementation.",
+    image: "./cert-magang-unuha.png",
+    pdfUrl: null,
+    verifyUrl: null,
+    tags: ["Magang Mandiri", "Sains & Teknologi", "Software Engineering", "UNUHA", "Kampus Berdampak"]
+  }
+];
+

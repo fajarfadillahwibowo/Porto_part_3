@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { Icon } from './TechIcons';
 import { ShinyButton } from '@/components/ui/shiny-button';
+import { useLanguageTheme } from '../context/LanguageThemeContext';
 import '../styles/contact.css';
 
 export default function Contact() {
+  const { lang, t } = useLanguageTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,12 +38,12 @@ export default function Contact() {
       <div className="container">
         {/* Section Heading */}
         <div className="section-header reveal-on-scroll">
-          <span className="section-badge">Hubungi Saya</span>
+          <span className="section-badge">{t.contact.sectionBadge}</span>
           <h2 className="section-title">
-            Mari Mulai <span className="text-gradient">Kolaborasi Baru</span>
+            {t.contact.sectionTitlePart1} <span className="text-gradient">{t.contact.sectionTitleGradient}</span>
           </h2>
           <p className="section-subtitle">
-            Apakah Anda memiliki ide proyek, tawaran kerja, atau sekadar ingin mendiskusikan teknologi? Pintu komunikasi saya selalu terbuka.
+            {t.contact.sectionSubtitle}
           </p>
         </div>
 
@@ -54,8 +56,8 @@ export default function Contact() {
                 <Icon name="email" size={22} />
               </div>
               <div className="contact-card-content">
-                <h4>Email Langsung</h4>
-                <p>Kirimkan surat elektronik kapan saja.</p>
+                <h4>{lang === 'id' ? 'Email Langsung' : 'Direct Email'}</h4>
+                <p>{lang === 'id' ? 'Kirimkan pesan elektronik kapan saja.' : 'Send an inquiry or project brief anytime.'}</p>
                 <a
                   href={`mailto:${personalInfo.socials.email}`}
                   className="contact-direct-link"
@@ -69,12 +71,15 @@ export default function Contact() {
 
             {/* WhatsApp / Chat Card */}
             <div className="contact-card-item">
-              <div className="contact-card-icon">
+              <div className="contact-card-icon" style={{ background: 'rgba(37, 211, 102, 0.15)', color: '#25D366' }}>
                 <Icon name="whatsapp" size={22} />
               </div>
               <div className="contact-card-content">
-                <h4>WhatsApp Messenger</h4>
-                <p>Respon instan untuk diskusi cepat & konsultasi.</p>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
+                  <h4>WhatsApp Messenger</h4>
+                  <span style={{ fontSize: '0.72rem', background: 'rgba(37, 211, 102, 0.15)', color: '#25D366', padding: '2px 8px', borderRadius: '12px', fontWeight: 600 }}>085607746031</span>
+                </div>
+                <p>{t.contact.waDesc}</p>
                 <a
                   href={personalInfo.socials.whatsapp}
                   target="_blank"
@@ -82,7 +87,7 @@ export default function Contact() {
                   className="contact-direct-link"
                   id="direct-whatsapp-link"
                 >
-                  <span>Hubungi via WhatsApp</span>
+                  <span>{t.contact.waBtn} (+62 856-0774-6031)</span>
                   <Icon name="external" size={14} />
                 </a>
               </div>
@@ -94,8 +99,8 @@ export default function Contact() {
                 <Icon name="map-pin" size={22} />
               </div>
               <div className="contact-card-content">
-                <h4>Lokasi & Ketersediaan</h4>
-                <p>{personalInfo.location} — {personalInfo.status}</p>
+                <h4>{lang === 'id' ? 'Lokasi & Status Kerja' : 'Location & Work Status'}</h4>
+                <p>{personalInfo.location} — {t.hero.availability}</p>
                 <span className="skill-badge">Remote / Hybrid Friendly</span>
               </div>
             </div>
@@ -139,15 +144,17 @@ export default function Contact() {
 
           {/* Kolom Formulir Kontak Interaktif */}
           <div className="contact-form-col reveal-on-scroll reveal-delay-2">
-            <h3 className="form-title">Kirimkan Pesan</h3>
+            <h3 className="form-title">{t.contact.formSubmit.replace(' Sekarang', '').replace(' Now', '')}</h3>
             <p className="form-subtitle">
-              Isi form berikut, dan saya akan merespon kembali secepat mungkin.
+              {lang === 'id'
+                ? 'Isi formulir berikut, dan saya akan merespon kembali secepat mungkin.'
+                : 'Fill out the form below, and I will get back to you as soon as possible.'}
             </p>
 
             {status === 'success' && (
               <div className="form-success-box" role="alert">
                 <Icon name="check" size={20} />
-                <span>Pesan Anda telah berhasil dikirim! Saya akan segera menghubungi Anda.</span>
+                <span>{t.contact.formSuccess}</span>
               </div>
             )}
 
@@ -155,14 +162,14 @@ export default function Contact() {
               <div className="form-grid-2">
                 <div className="form-group">
                   <label htmlFor="contact-name" className="form-label">
-                    Nama Lengkap *
+                    {t.contact.formName} *
                   </label>
                   <input
                     type="text"
                     id="contact-name"
                     name="name"
                     required
-                    placeholder="Misal: John Doe"
+                    placeholder={t.contact.formNamePlaceholder}
                     className="form-input"
                     value={formData.name}
                     onChange={handleChange}
@@ -171,14 +178,14 @@ export default function Contact() {
 
                 <div className="form-group">
                   <label htmlFor="contact-email" className="form-label">
-                    Alamat Email *
+                    {t.contact.formEmail} *
                   </label>
                   <input
                     type="email"
                     id="contact-email"
                     name="email"
                     required
-                    placeholder="nama@perusahaan.com"
+                    placeholder={t.contact.formEmailPlaceholder}
                     className="form-input"
                     value={formData.email}
                     onChange={handleChange}
@@ -188,14 +195,14 @@ export default function Contact() {
 
               <div className="form-group">
                 <label htmlFor="contact-message" className="form-label">
-                  Pesan Anda *
+                  {t.contact.formMessage} *
                 </label>
                 <textarea
                   id="contact-message"
                   name="message"
                   required
                   rows="5"
-                  placeholder="Ceritakan tentang proyek atau ide kolaborasi Anda..."
+                  placeholder={t.contact.formMessagePlaceholder}
                   className="form-textarea"
                   value={formData.message}
                   onChange={handleChange}
@@ -211,10 +218,10 @@ export default function Contact() {
                   style={{ width: '100%' }}
                 >
                   {status === 'submitting' ? (
-                    <span>Mengirimkan Pesan...</span>
+                    <span>{t.contact.formSending}</span>
                   ) : (
                     <>
-                      <span>Kirim Pesan Sekarang</span>
+                      <span>{t.contact.formSubmit}</span>
                       <Icon name="arrow-right" size={18} />
                     </>
                   )}

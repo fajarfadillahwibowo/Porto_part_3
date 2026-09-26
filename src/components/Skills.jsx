@@ -1,6 +1,7 @@
 import React from 'react';
 import { skillsData } from '../data/portfolioData';
 import { TechIcon } from './TechIcons';
+import { useLanguageTheme } from '../context/LanguageThemeContext';
 import '../styles/skills.css';
 
 // Data baris 1 marquee (bergerak ke kiri) - Fokus Stack Utama & Backend
@@ -29,6 +30,7 @@ const marqueeRow2 = [
 ];
 
 export default function Skills() {
+  const { t } = useLanguageTheme();
   // Gandakan array agar loop translasi CSS 100% mulus tanpa jeda
   const track1 = [...marqueeRow1, ...marqueeRow1];
   const track2 = [...marqueeRow2, ...marqueeRow2];
@@ -38,12 +40,12 @@ export default function Skills() {
       <div className="container">
         {/* Section Heading */}
         <div className="section-header reveal-on-scroll">
-          <span className="section-badge">Tech Stack & Ecosystem</span>
+          <span className="section-badge">{t.skills.sectionBadge}</span>
           <h2 className="section-title">
-            Keahlian Teknis & <span className="text-gradient">Ekosistem Pengembangan</span>
+            {t.skills.sectionTitlePart1} <span className="text-gradient">{t.skills.sectionTitleGradient}</span>
           </h2>
           <p className="section-subtitle">
-            Alat dan teknologi resmi yang menjadi tulang punggung dalam membangun sistem web cepat, stabil, dan berkinerja tinggi.
+            {t.skills.sectionSubtitle}
           </p>
         </div>
 

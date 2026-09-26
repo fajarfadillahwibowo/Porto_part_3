@@ -1,10 +1,19 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Jika file produksi di dist/ tersedia, arahkan request ke dist/
-    RewriteCond %{DOCUMENT_ROOT}/dist/index.html -f
-    RewriteCond %{REQUEST_URI} !^/dist/
+    # Jangan rewrite jika request sudah ke folder dist
+    RewriteRule ^dist/ - [L]
+
+    # Cek apakah file atau folder ada di dalam folder dist/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/Porto_part_3/dist/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/Porto_part_3/dist/$1 -d
     RewriteRule ^(.*)$ dist/$1 [L]
+
+    # Jika mengakses root directory proyek dan dist/index.html ada
+    RewriteCond %{DOCUMENT_ROOT}/Porto_part_3/dist/index.html -f
+    RewriteRule ^$ dist/index.html [L]
 </IfModule>
 
 # Pastikan MIME type untuk modern web modules

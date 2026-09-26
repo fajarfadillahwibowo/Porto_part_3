@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { Icon } from './TechIcons';
+import { useLanguageTheme } from '../context/LanguageThemeContext';
 import '../styles/cv-modal.css';
 
 export default function CvModal({ isOpen, onClose }) {
+  const { t } = useLanguageTheme();
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -34,7 +37,7 @@ export default function CvModal({ isOpen, onClose }) {
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Pratinjau Curriculum Vitae"
+      aria-label={t.cvModal.title}
     >
       <div
         className="cv-modal-window"
@@ -47,8 +50,8 @@ export default function CvModal({ isOpen, onClose }) {
               <Icon name="briefcase" size={18} />
             </div>
             <div>
-              <h3 className="cv-modal-title">Curriculum Vitae</h3>
-              <p className="cv-modal-subtitle">{personalInfo.name} — PDF Resmi</p>
+              <h3 className="cv-modal-title">{t.cvModal.title}</h3>
+              <p className="cv-modal-subtitle">{personalInfo.name} — {t.cvModal.subtitle}</p>
             </div>
           </div>
 
@@ -59,10 +62,10 @@ export default function CvModal({ isOpen, onClose }) {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-modal-action btn-modal-secondary"
-              title="Buka dokumen di tab baru browser"
+              title={t.cvModal.openTab}
             >
               <Icon name="external" size={15} />
-              <span>Buka di Tab Baru</span>
+              <span>{t.cvModal.openTab}</span>
             </a>
 
             {/* Tombol Download yang Nyata */}
@@ -71,10 +74,10 @@ export default function CvModal({ isOpen, onClose }) {
               download="CV-Fajar-Fadillah-Wibowo.pdf"
               className="btn-modal-action btn-modal-download"
               id="modal-download-cv-btn"
-              title="Unduh berkas CV sekarang"
+              title={t.cvModal.download}
             >
               <Icon name="download" size={15} />
-              <span>Download CV</span>
+              <span>{t.cvModal.download}</span>
             </a>
 
             {/* Tombol Tutup */}
@@ -82,8 +85,8 @@ export default function CvModal({ isOpen, onClose }) {
               type="button"
               className="btn-modal-close"
               onClick={onClose}
-              aria-label="Tutup Pratinjau"
-              title="Tutup (Esc)"
+              aria-label={t.cvModal.close}
+              title={`${t.cvModal.close} (Esc)`}
             >
               <Icon name="x" size={18} />
             </button>
@@ -94,7 +97,7 @@ export default function CvModal({ isOpen, onClose }) {
         <div className="cv-modal-body">
           <iframe
             src={`${personalInfo.cvUrl}#toolbar=1&navpanes=0&view=FitH`}
-            title="Pratinjau Curriculum Vitae Fajar Fadillah Wibowo"
+            title={`Pratinjau CV ${personalInfo.name}`}
             className="cv-pdf-frame"
           />
         </div>

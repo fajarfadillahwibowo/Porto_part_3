@@ -246,3 +246,49 @@
     font-size: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES FOR SKILLS
+   ========================================================================== */
+[data-theme="light"] .marquee-item {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] .marquee-item:hover {
+  background: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  border-color: #1C4BBC;
+}
+
+[data-theme="light"] .marquee-title {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .skill-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] .skill-card:hover {
+  background: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  border-color: rgba(28, 75, 188, 0.35);
+}
+
+[data-theme="light"] .skill-card.core-stack {
+  background: linear-gradient(145deg, #FFFFFF 0%, rgba(28, 75, 188, 0.08) 100%);
+  border-color: rgba(28, 75, 188, 0.35);
+}
+
+[data-theme="light"] .skill-name,
+[data-theme="light"] .skill-card.core-stack .skill-name {
+  color: #0F172A;
+}
+
+[data-theme="light"] .skill-desc {
+  color: var(--text-secondary);
+}
+

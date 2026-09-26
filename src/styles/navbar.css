@@ -9,23 +9,23 @@
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 36px);
-  max-width: 920px;
+  max-width: 1040px;
   height: 64px;
   z-index: 1000;
-  background: rgba(13, 21, 39, 0.78);
+  background: var(--bg-card);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(202, 211, 230, 0.15);
+  border: 1px solid var(--border-subtle);
   border-radius: 9999px;
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(28, 75, 188, 0.15);
+  box-shadow: var(--shadow-md), 0 0 25px rgba(28, 75, 188, 0.12);
   transition: transform var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
-  padding: 0 8px 0 12px;
+  padding: 0 10px 0 14px;
 }
 
 .site-header.scrolled {
-  background: rgba(7, 11, 22, 0.92);
+  background: var(--bg-glass);
   border-color: rgba(130, 190, 59, 0.45);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(28, 75, 188, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(28, 75, 188, 0.25);
   transform: translateX(-50%) translateY(-2px);
 }
 
@@ -147,7 +147,127 @@
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+}
+
+/* Language Switcher Pill */
+.lang-switcher-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 5px;
+  background: rgba(202, 211, 230, 0.08);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 7px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.active {
+  background: var(--royal-blue);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(28, 75, 188, 0.35);
+}
+
+.lang-divider {
+  font-size: 0.7rem;
+  color: var(--border-subtle);
+  user-select: none;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(202, 211, 230, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(202, 211, 230, 0.16);
+  color: var(--text-primary);
+  border-color: rgba(202, 211, 230, 0.3);
+  transform: translateY(-1px);
+}
+
+.theme-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.theme-toggle-btn:hover .sun-icon {
+  color: #F59E0B;
+  transform: rotate(45deg);
+}
+
+.theme-toggle-btn:hover .moon-icon {
+  color: #38BDF8;
+  transform: rotate(-15deg);
+}
+
+/* Light Mode Overrides for Nav */
+[data-theme="light"] .lang-switcher-pill {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .lang-btn {
+  color: #64748B;
+}
+
+[data-theme="light"] .lang-btn.active {
+  background: #1C4BBC;
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #334155;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  background: rgba(15, 23, 42, 0.12);
+  color: #0F172A;
+}
+
+[data-theme="light"] .mobile-drawer {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.18);
+}
+
+[data-theme="light"] .mobile-nav-link {
+  color: #334155;
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .mobile-nav-link:hover,
+[data-theme="light"] .mobile-nav-link.active {
+  color: #1C4BBC;
 }
 
 /* Mobile Toggle Hamburger */
@@ -233,11 +353,21 @@
     padding-left: 8px;
   }
 
+  .mobile-drawer-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
   .mobile-drawer .btn-cv {
     width: 100%;
     justify-content: center;
     text-align: center;
     padding: 12px 20px;
     font-size: 1rem;
+    margin-top: 14px;
   }
 }

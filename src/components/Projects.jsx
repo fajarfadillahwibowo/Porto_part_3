@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { projectsData, personalInfo } from '../data/portfolioData';
 import { Icon } from './TechIcons';
+import { useLanguageTheme } from '../context/LanguageThemeContext';
+import ProjectInteractions from './ProjectInteractions';
 import '../styles/projects.css';
 
 export default function Projects() {
+  const { lang, t } = useLanguageTheme();
   const [activeCategory, setActiveCategory] = useState('Semua');
 
   const categories = ['Semua', 'Full-Stack', 'Web App'];
@@ -17,12 +20,12 @@ export default function Projects() {
       <div className="container">
         {/* Section Heading */}
         <div className="section-header reveal-on-scroll">
-          <span className="section-badge">Bento Grid Showcase</span>
+          <span className="section-badge">{t.projects.sectionBadge}</span>
           <h2 className="section-title">
-            Etalase Portofolio & <span className="text-gradient">Implementasi Sistem</span>
+            {t.projects.sectionTitlePart1} <span className="text-gradient">{t.projects.sectionTitleGradient}</span>
           </h2>
           <p className="section-subtitle">
-            Koleksi proyek rekayasa perangkat lunak terpilih, dirancang dengan arsitektur bersih, kehandalan backend, dan estetika visual modern.
+            {t.projects.sectionSubtitle}
           </p>
         </div>
 
@@ -35,20 +38,17 @@ export default function Projects() {
               className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
               onClick={() => setActiveCategory(cat)}
             >
-              {cat}
+              {cat === 'Semua' ? t.projects.filterAll : cat}
             </button>
           ))}
         </div>
 
-        {/* 
-          BENTO GRID CONTAINER:
-          Tata letak asimetris, rapi, dengan sudut membulat (border-radius: 24px)
-          dan animasi hover CSS murni (terangkat lembut + bayangan melembut).
-        */}
+        {/* BENTO GRID CONTAINER */}
         <div className="bento-grid">
-          {filteredProjects.map((project, index) => {
-            // Proyek pertama (SPMB) dijadikan Flagship Bento Card (Span 2 kolom) saat filter "Semua"
+          {filteredProjects.map((project) => {
             const isFeatured = project.id === 1 && activeCategory === 'Semua';
+            const projectTitle = t.projects.items[project.id]?.title || project.title;
+            const projectDesc = t.projects.items[project.id]?.desc || project.description;
 
             if (isFeatured) {
               return (
@@ -59,10 +59,10 @@ export default function Projects() {
                 >
                   {/* Media Unggulan */}
                   <div className="bento-featured-media media-static-crisp">
-                    <span className="bento-badge featured">⭐ PROYEK UTAMA / FLAGSHIP</span>
+                    <span className="bento-badge featured">⭐ {t.projects.featuredBadge}</span>
                     <img
                       src={project.image}
-                      alt={`Tangkapan layar antarmuka ${project.title}`}
+                      alt={`Tangkapan layar antarmuka ${projectTitle}`}
                       className="project-img"
                       loading="lazy"
                       decoding="async"
@@ -74,8 +74,8 @@ export default function Projects() {
                   {/* Konten Flagship */}
                   <div className="bento-content">
                     <div>
-                      <h3 className="bento-title">{project.title}</h3>
-                      <p className="bento-description">{project.description}</p>
+                      <h3 className="bento-title">{projectTitle}</h3>
+                      <p className="bento-description">{projectDesc}</p>
 
                       <div className="bento-tags">
                         {project.tags.map((tag) => (
@@ -92,10 +92,10 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bento-link"
-                        title="Lihat Kode Sumber di GitHub"
+                        title={t.projects.btnCode}
                       >
                         <Icon name="github" size={16} />
-                        <span>Kode Sumber</span>
+                        <span>{t.projects.btnCode}</span>
                       </a>
 
                       <a
@@ -103,12 +103,18 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bento-link demo"
-                        title="Buka Repositori Proyek"
+                        title={t.projects.btnDemo}
                       >
-                        <span>Eksplorasi Proyek</span>
+                        <span>{t.projects.btnDemo}</span>
                         <Icon name="external" size={15} />
                       </a>
                     </div>
+
+                    {/* Baris Interaktif: Reaksi Emojis & Komentar Pengunjung */}
+                    <ProjectInteractions
+                      projectId={project.id}
+                      projectTitle={projectTitle}
+                    />
                   </div>
                 </article>
               );
@@ -125,7 +131,7 @@ export default function Projects() {
                   <span className="bento-badge">{project.category}</span>
                   <img
                     src={project.image}
-                    alt={`Tangkapan layar antarmuka ${project.title}`}
+                    alt={`Tangkapan layar antarmuka ${projectTitle}`}
                     className="project-img"
                     loading="lazy"
                     decoding="async"
@@ -136,8 +142,8 @@ export default function Projects() {
 
                 <div className="bento-content">
                   <div>
-                    <h3 className="bento-title">{project.title}</h3>
-                    <p className="bento-description">{project.description}</p>
+                    <h3 className="bento-title">{projectTitle}</h3>
+                    <p className="bento-description">{projectDesc}</p>
 
                     <div className="bento-tags">
                       {project.tags.map((tag) => (
@@ -156,7 +162,7 @@ export default function Projects() {
                       className="bento-link"
                     >
                       <Icon name="github" size={16} />
-                      <span>Kode Sumber</span>
+                      <span>{t.projects.btnCode}</span>
                     </a>
 
                     <a
@@ -165,30 +171,35 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="bento-link demo"
                     >
-                      <span>Lihat Detail</span>
+                      <span>{t.projects.btnDemo}</span>
                       <Icon name="external" size={15} />
                     </a>
                   </div>
+
+                  {/* Baris Interaktif: Reaksi Emojis & Komentar Pengunjung */}
+                  <ProjectInteractions
+                    projectId={project.id}
+                    projectTitle={projectTitle}
+                  />
                 </div>
               </article>
             );
           })}
 
-          {/* 
-            BENTO HIGHLIGHT CARD:
-            Kartu Informasi Tambahan yang melengkapi tata letak Bento Grid asimetris
-          */}
+          {/* BENTO HIGHLIGHT CARD */}
           {activeCategory === 'Semua' && (
             <div className="bento-card bento-span-2 bento-card-info reveal-on-scroll">
               <div className="bento-info-header">
                 <span className="section-badge" style={{ marginBottom: '8px' }}>
-                  Filosofi Rekayasa
+                  {lang === 'id' ? 'Filosofi Rekayasa' : 'Engineering Philosophy'}
                 </span>
                 <h3 className="bento-info-title">
-                  Standar Kode Bersih, Modular & Tangguh
+                  {lang === 'id' ? 'Standar Kode Bersih, Modular & Tangguh' : 'Clean, Modular & Resilient Code Standards'}
                 </h3>
                 <p className="bento-info-subtitle">
-                  Setiap baris kode dirancang untuk kemudahan pemeliharaan jangka panjang, performa stabil 60 FPS, dan pengalaman pengguna yang memuaskan.
+                  {lang === 'id'
+                    ? 'Setiap baris kode dirancang untuk kemudahan pemeliharaan jangka panjang, performa stabil 60 FPS, dan pengalaman pengguna yang memuaskan.'
+                    : 'Engineered for long-term maintainability, stable 60 FPS fluid performance, and delightful user experiences.'}
                 </p>
               </div>
 
@@ -196,32 +207,32 @@ export default function Projects() {
                 <div className="bento-feature-item">
                   <span className="bento-feature-icon">⚡</span>
                   <div className="bento-feature-text">
-                    <h5>Laragon & React Stack</h5>
-                    <p>Lingkungan server lokal cepat dipadu dengan reaktivitas komponen modular.</p>
+                    <h5>{lang === 'id' ? 'Arsitektur Komponen Modular' : 'Modular Component Architecture'}</h5>
+                    <p>{lang === 'id' ? 'Pemisahan tanggung jawab secara tegas dan efisiensi re-render.' : 'Strict separation of concerns with fine-grained render efficiency.'}</p>
                   </div>
                 </div>
 
                 <div className="bento-feature-item">
                   <span className="bento-feature-icon">🛡️</span>
                   <div className="bento-feature-text">
-                    <h5>Arsitektur MVC & Keamanan</h5>
-                    <p>Validasi ketat pada backend Laravel dan sanitasi input database MySQL.</p>
+                    <h5>{lang === 'id' ? 'Keamanan & Tata Kelola Data' : 'Security & Data Governance'}</h5>
+                    <p>{lang === 'id' ? 'Validasi menyeluruh dan sanitasi input basis data terstruktur.' : 'Comprehensive validation, sanitization, and structured data handling.'}</p>
                   </div>
                 </div>
 
                 <div className="bento-feature-item">
                   <span className="bento-feature-icon">🧠</span>
                   <div className="bento-feature-text">
-                    <h5>AI-Assisted Engineering</h5>
-                    <p>Akselerasi debugging dan optimasi logika via Google Antigravity & LLMs.</p>
+                    <h5>{lang === 'id' ? 'Akselerasi Rekayasa Cerdas' : 'Modern Engineering Acceleration'}</h5>
+                    <p>{lang === 'id' ? 'Debugging presisi dan pengujian komprehensif berstandar modern.' : 'Precision debugging and automated modern testing standards.'}</p>
                   </div>
                 </div>
 
                 <div className="bento-feature-item">
                   <span className="bento-feature-icon">🎨</span>
                   <div className="bento-feature-text">
-                    <h5>Glassmorphism & Responsive</h5>
-                    <p>Estetika visual modern yang tetap ringan, ramah sentuhan, dan aksesibel.</p>
+                    <h5>{lang === 'id' ? 'Desain Adaptif & Interaktif' : 'Adaptive & Responsive Design'}</h5>
+                    <p>{lang === 'id' ? 'Estetika visual modern yang tetap ringan, ramah sentuhan, dan aksesibel.' : 'Modern visual aesthetics that stay fast, touch-friendly, and accessible.'}</p>
                   </div>
                 </div>
               </div>
@@ -239,7 +250,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="bento-link demo"
                 >
-                  <span>Kunjungi Semua Repositori</span>
+                  <span>{lang === 'id' ? 'Kunjungi Semua Repositori' : 'Explore All Repositories'}</span>
                   <Icon name="arrow-right" size={16} />
                 </a>
               </div>

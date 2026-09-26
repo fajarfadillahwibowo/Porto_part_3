@@ -66,6 +66,49 @@
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ==========================================================================
+   LIGHT MODE DESIGN SYSTEM SPECIFICATION
+   Impeccable contrast, crisp slate-900 typography, pristine glassmorphism
+   ========================================================================== */
+[data-theme="light"],
+.light-theme {
+  /* Crisp Light Canvas */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #EEF2F6;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(255, 255, 255, 0.86);
+
+  /* Subtle Crisp Light Borders */
+  --border-subtle: rgba(15, 23, 42, 0.12);
+  --border-focus: rgba(28, 75, 188, 0.65);
+  --border-highlight: rgba(101, 163, 13, 0.45);
+
+  /* High-Contrast Light Typography */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-accent: #4D7C0F;
+  --text-brand: #1C4BBC;
+
+  --powder-blue: #334155;
+  --powder-blue-light: #0F172A;
+  --powder-blue-muted: #64748B;
+
+  /* Gradients tailored for light backgrounds */
+  --gradient-brand: linear-gradient(135deg, #1C4BBC 0%, #2563EB 50%, #4D7C0F 100%);
+  --gradient-royal-lime: linear-gradient(135deg, #1C4BBC 0%, #4D7C0F 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(28, 75, 188, 0.09) 0%, rgba(130, 190, 59, 0.06) 50%, transparent 75%);
+
+  /* High-Grade Soft Shadows */
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 40px -15px rgba(15, 23, 42, 0.12);
+  --shadow-hover: 0 16px 36px -10px rgba(28, 75, 188, 0.16);
+  --shadow-royal: 0 8px 25px rgba(28, 75, 188, 0.15);
+}
+
 /* CSS Reset & Defaults */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -274,14 +317,14 @@ body::before {
 .form-input, .form-textarea {
   width: 100%;
   padding: 14px 16px;
-  background: rgba(9, 15, 29, 0.85);
+  background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-family: inherit;
   font-size: 0.95rem;
   outline: none;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
 .form-input::placeholder, .form-textarea::placeholder {

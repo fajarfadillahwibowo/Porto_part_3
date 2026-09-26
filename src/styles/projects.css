@@ -360,3 +360,71 @@
     padding: 20px;
   }
 }
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES FOR PROJECTS
+   ========================================================================== */
+[data-theme="light"] .filter-btn {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .filter-btn:hover {
+  background: #FFFFFF;
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .filter-btn.active {
+  background: #1C4BBC;
+  color: #FFFFFF;
+  border-color: #1C4BBC;
+  box-shadow: 0 4px 14px rgba(28, 75, 188, 0.25);
+}
+
+[data-theme="light"] .bento-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="light"] .bento-card:hover {
+  background: #FFFFFF;
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(28, 75, 188, 0.35);
+}
+
+[data-theme="light"] .bento-title {
+  color: #0F172A;
+}
+
+[data-theme="light"] .bento-desc {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .bento-featured-media,
+[data-theme="light"] .bento-media-header {
+  background-color: #F1F5F9;
+}
+
+[data-theme="light"] .bento-card-featured {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(28, 75, 188, 0.05) 100%);
+}
+
+[data-theme="light"] .project-tag {
+  background: rgba(28, 75, 188, 0.08);
+  color: #1C4BBC;
+  border-color: rgba(28, 75, 188, 0.2);
+}
+
+[data-theme="light"] .btn-project-code {
+  background: rgba(15, 23, 42, 0.05);
+  color: #0F172A;
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .btn-project-code:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+}
+
