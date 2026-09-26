@@ -1,0 +1,248 @@
+/* ==========================================================================
+   SKILLS & TECH STACK STYLES
+   - Infinite Marquee 2-Baris (60 FPS Pure CSS Keyframes & Transform)
+   - Accurate Official SVG Logos with Zero Distortion
+   - Modern Glassmorphism & High-Performance Transitions
+   ========================================================================== */
+
+/* Infinite Marquee Section Container */
+.marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  padding: 16px 0 32px 0;
+  margin-bottom: 48px;
+  /* Pure CSS Edge Fade Mask */
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused !important;
+}
+
+/* Row 1: Bergerak ke Kiri */
+.marquee-left {
+  animation: scrollLeft 34s linear infinite;
+}
+
+/* Row 2: Bergerak ke Kanan */
+.marquee-right {
+  animation: scrollRight 34s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Marquee Pill Card */
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 10px 22px 10px 14px;
+  margin: 0 10px;
+  white-space: nowrap;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: default;
+}
+
+.marquee-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--lime-green);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.7), 0 0 24px rgba(130, 190, 59, 0.25);
+}
+
+.marquee-item.core-highlight {
+  border-color: rgba(28, 75, 188, 0.5);
+  background: linear-gradient(135deg, rgba(13, 21, 39, 0.95) 0%, rgba(28, 75, 188, 0.22) 100%);
+}
+
+.marquee-icon-wrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.marquee-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.marquee-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.marquee-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--lime-green-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Category Grid Below Marquee */
+.skills-category-group {
+  margin-bottom: 40px;
+}
+
+.skills-category-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skills-category-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gradient-royal-lime);
+  border-radius: 2px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Skill Card */
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-icon-box {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.skill-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.skill-badge {
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(130, 190, 59, 0.12);
+  color: var(--lime-green-light);
+  border: 1px solid rgba(130, 190, 59, 0.3);
+}
+
+.skill-desc {
+  font-size: 0.85rem;
+  color: var(--powder-blue);
+  line-height: 1.5;
+}
+
+.skill-card.core-stack {
+  border-color: rgba(28, 75, 188, 0.5);
+  background: linear-gradient(145deg, rgba(13, 21, 39, 0.95) 0%, rgba(28, 75, 188, 0.18) 100%);
+  box-shadow: 0 10px 25px -10px rgba(28, 75, 188, 0.3);
+}
+
+.skill-card.core-stack .skill-name {
+  color: #ffffff;
+}
+
+.skill-card:hover {
+  border-color: var(--lime-green);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.7), 0 0 24px rgba(130, 190, 59, 0.2);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right {
+    animation: none !important;
+  }
+  .marquee-track {
+    overflow-x: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .marquee-item {
+    padding: 8px 16px 8px 10px;
+    margin: 0 6px;
+  }
+  .marquee-icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+  .marquee-title {
+    font-size: 0.85rem;
+  }
+}

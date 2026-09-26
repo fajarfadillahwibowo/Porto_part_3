@@ -1,0 +1,362 @@
+/* ==========================================================================
+   BENTO GRID PORTOFOLIO / PROJECTS SECTION STYLES
+   - Asymmetric, harmonious Bento Grid layout
+   - Rounded corners (border-radius: 24px)
+   - Lightweight pure CSS hover elevation & shadow softening
+   - Glassmorphism & High-Performance Transitions
+   ========================================================================== */
+
+/* Filter Controls */
+.projects-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: rgba(202, 211, 230, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--powder-blue);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.filter-btn:hover {
+  background: rgba(202, 211, 230, 0.12);
+  color: #ffffff;
+  border-color: rgba(202, 211, 230, 0.3);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: rgba(130, 190, 59, 0.18);
+  border-color: var(--lime-green);
+  color: var(--lime-green-light);
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(130, 190, 59, 0.25);
+}
+
+/* ==========================================================================
+   BENTO GRID LAYOUT CONTAINER
+   ========================================================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Base Bento Card */
+.bento-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease-in-out;
+  will-change: transform;
+}
+
+/* Pure CSS Hover: Ringan, Sedikit Terangkat, Bayangan Melembut */
+.bento-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(130, 190, 59, 0.45);
+  box-shadow: 0 22px 50px -12px rgba(0, 0, 0, 0.85), 0 0 35px rgba(130, 190, 59, 0.2);
+}
+
+/* 
+   BENTO VARIATION 1: Hero Flagship Card (Spans 2 Columns)
+*/
+.bento-span-2 {
+  grid-column: span 2;
+}
+
+.bento-card-featured {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+}
+
+.bento-featured-media {
+  position: relative;
+  overflow: hidden;
+  background-color: #070B16;
+  border-right: 1px solid var(--border-subtle);
+  min-height: 280px;
+}
+
+.bento-featured-media .project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* 
+   BENTO VARIATION 2: Compact Card (Spans 1 Column)
+*/
+.bento-span-1 {
+  grid-column: span 1;
+}
+
+.bento-compact-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #070B16;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.bento-compact-media .project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Category Badge in Bento Media */
+.bento-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(7, 11, 22, 0.90);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(130, 190, 59, 0.4);
+  color: var(--lime-green-light);
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+  z-index: 2;
+}
+
+.bento-badge.featured {
+  border-color: rgba(28, 75, 188, 0.7);
+  background: linear-gradient(135deg, rgba(7, 11, 22, 0.95) 0%, rgba(28, 75, 188, 0.3) 100%);
+  color: #60A5FA;
+}
+
+/* Bento Card Content Area */
+.bento-content {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.bento-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.bento-description {
+  font-size: 0.9rem;
+  color: var(--powder-blue);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Tech Tags */
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.bento-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(28, 75, 188, 0.16);
+  color: var(--powder-blue-light);
+  border: 1px solid rgba(28, 75, 188, 0.35);
+}
+
+/* Action Links Footer */
+.bento-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.bento-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--powder-blue);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.bento-link:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.bento-link.demo {
+  color: var(--lime-green-light);
+}
+
+.bento-link.demo:hover {
+  color: #ffffff;
+}
+
+/* 
+   BENTO VARIATION 3: Developer Architecture & Philosophy Card (Spans 2 Columns)
+*/
+.bento-card-info {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(13, 21, 39, 0.88) 0%, rgba(28, 75, 188, 0.18) 100%);
+  border-color: rgba(28, 75, 188, 0.4);
+}
+
+.bento-info-header {
+  margin-bottom: 20px;
+}
+
+.bento-info-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.bento-info-subtitle {
+  font-size: 0.925rem;
+  color: var(--powder-blue);
+  line-height: 1.6;
+}
+
+.bento-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 16px 0 24px 0;
+}
+
+.bento-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(7, 11, 22, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.bento-feature-icon {
+  color: var(--lime-green);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bento-feature-text h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.bento-feature-text p {
+  font-size: 0.8rem;
+  color: var(--powder-blue-muted);
+  line-height: 1.4;
+}
+
+.bento-info-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.bento-stats-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bento-stat-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(130, 190, 59, 0.12);
+  color: var(--lime-green-light);
+  border: 1px solid rgba(130, 190, 59, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADAPTATIONS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-span-2 {
+    grid-column: span 2;
+  }
+  .bento-card-featured {
+    grid-template-columns: 1fr;
+  }
+  .bento-featured-media {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .bento-span-2,
+  .bento-span-1 {
+    grid-column: span 1;
+  }
+  .bento-card-featured {
+    grid-template-columns: 1fr;
+  }
+  .bento-features-list {
+    grid-template-columns: 1fr;
+  }
+  .bento-content {
+    padding: 20px;
+  }
+}

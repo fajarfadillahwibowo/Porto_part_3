@@ -1,0 +1,101 @@
+/* ==========================================================================
+   FOOTER STYLES
+   Semantic Footer with Tech Stack Attribution & Back-to-Top
+   ========================================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: #05070a;
+  padding: 60px 0 30px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav a:hover {
+  color: var(--text-primary);
+}
+
+.btn-back-top {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-back-top:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 24px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-attribution {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-attribution strong {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,208 @@
+/* ==========================================================================
+   CV PREVIEW MODAL STYLES
+   High-End Glassmorphic PDF Viewer with Action Controls
+   ========================================================================== */
+
+.cv-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(3, 7, 18, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cv-modal-window {
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  max-height: 900px;
+  background: var(--bg-primary);
+  border: 1px solid rgba(202, 211, 230, 0.16);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(28, 75, 188, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Header */
+.cv-modal-header {
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.cv-modal-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-modal-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(130, 190, 59, 0.12);
+  border: 1px solid rgba(130, 190, 59, 0.3);
+  color: var(--lime-green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-modal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.cv-modal-subtitle {
+  font-size: 0.75rem;
+  color: var(--powder-blue-muted);
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-modal-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-modal-download {
+  background: var(--gradient-royal-lime);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(28, 75, 188, 0.4);
+}
+
+.btn-modal-download:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(130, 190, 59, 0.4);
+}
+
+.btn-modal-secondary {
+  background: rgba(202, 211, 230, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--powder-blue);
+}
+
+.btn-modal-secondary:hover {
+  background: rgba(202, 211, 230, 0.12);
+  color: #ffffff;
+}
+
+.btn-modal-close {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* Modal Body / Viewer */
+.cv-modal-body {
+  flex: 1;
+  background: #171d2c;
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #ffffff;
+}
+
+/* Mobile & Fallback notification */
+.cv-modal-fallback {
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .cv-modal-backdrop {
+    padding: 10px;
+  }
+  .cv-modal-window {
+    height: 94vh;
+  }
+  .cv-modal-header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+  .cv-modal-title-box {
+    flex: 1;
+  }
+  .btn-modal-action span {
+    display: none;
+  }
+  .btn-modal-action {
+    padding: 8px 12px;
+  }
+}

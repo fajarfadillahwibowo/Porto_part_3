@@ -1,0 +1,128 @@
+/* ==========================================================================
+   HERO SECTION STYLES
+   High-Impact Typography & Staggered Animations
+   ========================================================================== */
+
+.hero-section {
+  padding-top: 130px;
+  padding-bottom: 90px;
+  min-height: calc(88vh);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Status Pill */
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: rgba(130, 190, 59, 0.12);
+  border: 1px solid rgba(130, 190, 59, 0.35);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--lime-green-light);
+  margin-bottom: 24px;
+}
+
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--lime-green);
+  box-shadow: 0 0 12px var(--lime-green);
+}
+
+/* Headline */
+.hero-title {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--powder-blue);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 36px auto;
+}
+
+/* Hero CTA Button Group */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 50px;
+}
+
+/* Stats Metric Pills */
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-number {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--lime-green);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--powder-blue-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.35rem;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-metrics {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

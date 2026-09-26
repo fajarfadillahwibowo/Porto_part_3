@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Jika file produksi di dist/ tersedia, arahkan request ke dist/
+    RewriteCond %{DOCUMENT_ROOT}/dist/index.html -f
+    RewriteCond %{REQUEST_URI} !^/dist/
+    RewriteRule ^(.*)$ dist/$1 [L]
+</IfModule>
+
+# Pastikan MIME type untuk modern web modules
+<IfModule mod_mime.c>
+    AddType application/javascript .js .mjs
+    AddType image/svg+xml .svg
+</IfModule>

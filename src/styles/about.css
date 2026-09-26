@@ -1,0 +1,154 @@
+/* ==========================================================================
+   ABOUT SECTION STYLES
+   Visual Integrity Compliant: 100% Native Aspect Ratio, Zero Filter Manipulation
+   ========================================================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* 
+   Profile Photo Container:
+   Mempertahankan aspek rasio foto asli kamera (iPhone portrait 3:4 atau 4:3) 
+   tanpa cropping paksa atau filter apapun.
+*/
+.profile-media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(28, 75, 188, 0.25);
+}
+
+.profile-media-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #070B16;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+   Native image rendering per PRD Bagian 4 & 5:
+   - aspect-ratio asli dipertahankan
+   - filter: none (Dilarang grayscale/blur/sepia)
+   - bebas dari hover/parallax scale
+*/
+.profile-native-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* About Narrative Content */
+.about-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-paragraph {
+  font-size: 1.05rem;
+  color: var(--powder-blue);
+  line-height: 1.75;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.highlight-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.highlight-icon {
+  color: var(--lime-green);
+  background: rgba(130, 190, 59, 0.12);
+  border: 1px solid rgba(130, 190, 59, 0.25);
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.highlight-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.highlight-content p {
+  font-size: 0.85rem;
+  color: var(--powder-blue-muted);
+}
+
+/* Social Connections */
+.about-socials-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.about-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(202, 211, 230, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--powder-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.about-social-link:hover {
+  background: rgba(130, 190, 59, 0.12);
+  border-color: var(--lime-green);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 968px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .profile-media-frame {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 540px) {
+  .about-highlights {
+    grid-template-columns: 1fr;
+  }
+}
