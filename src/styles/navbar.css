@@ -18,15 +18,18 @@
   border: 1px solid var(--border-subtle);
   border-radius: 9999px;
   box-shadow: var(--shadow-md), 0 0 25px rgba(28, 75, 188, 0.12);
-  transition: transform var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
   padding: 0 10px 0 14px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateX(-50%);
 }
 
 .site-header.scrolled {
   background: var(--bg-glass);
   border-color: rgba(130, 190, 59, 0.45);
   box-shadow: var(--shadow-lg), 0 0 30px rgba(28, 75, 188, 0.25);
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateX(-50%);
 }
 
 .navbar-inner {

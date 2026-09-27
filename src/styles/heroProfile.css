@@ -130,6 +130,8 @@
   overflow: hidden;
   box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 24px -6px rgba(56, 189, 248, 0.08);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  isolation: isolate;
+  contain: paint;
 }
 
 .hero-dev-terminal-wrapper:hover {
@@ -796,24 +798,30 @@
   .hero-photo-showcase {
     width: 100%;
     max-width: 100%;
+    perspective: none !important;
+    transform: none !important;
+    contain: paint;
   }
 
   .photo-ambient-halo {
-    max-width: 320px;
-    max-height: 400px;
-    filter: blur(40px);
+    max-width: 270px;
+    max-height: 330px;
+    filter: blur(24px);
+    animation: none !important;
+    transform: translate(-50%, -50%) !important;
   }
 
   .photo-tilt-card {
-    max-width: 310px;
+    max-width: 290px;
     margin: 0 auto;
-    border-radius: 24px;
-    /* Nonaktifkan tilt rotasi pada layar sentuh agar tetap presisi di tengah */
+    border-radius: 22px;
     transform: none !important;
+    transform-style: flat !important;
+    transition: none !important;
   }
 
   .photo-inner-enclosure {
-    border-radius: 22px;
+    border-radius: 20px;
     padding: 10px;
   }
 
@@ -831,6 +839,12 @@
     margin-top: 14px;
     margin-bottom: 6px;
     overflow: hidden;
+  }
+
+  .terminal-border-beam {
+    animation: none !important;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.6), rgba(130, 190, 59, 0.6));
+    inset: 0;
   }
 
   .terminal-titlebar {
@@ -874,24 +888,30 @@
   .hero-photo-showcase {
     width: 100%;
     max-width: 100%;
+    perspective: none !important;
+    contain: paint;
   }
 
   .photo-ambient-halo {
-    max-width: 280px;
-    max-height: 360px;
-    filter: blur(32px);
+    max-width: 250px;
+    max-height: 310px;
+    filter: blur(20px);
+    animation: none !important;
+    transform: translate(-50%, -50%) !important;
   }
 
   .photo-tilt-card {
-    max-width: 290px;
+    max-width: 280px;
     margin: 0 auto;
     border-radius: 22px;
     transform: none !important;
+    transform-style: flat !important;
+    transition: none !important;
   }
 
   .photo-inner-enclosure {
     border-radius: 20px;
-    padding: 9px;
+    padding: 8px;
   }
 
   .photo-core-image {

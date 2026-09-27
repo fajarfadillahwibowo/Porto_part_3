@@ -17,6 +17,8 @@
   /* Pure CSS Edge Fade Mask */
   mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  contain: paint;
+  isolation: isolate;
 }
 
 .marquee-track {

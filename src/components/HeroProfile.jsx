@@ -16,8 +16,15 @@ export default function HeroProfile({ onOpenCv }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0, shineX: 50, shineY: 50 });
   const [isHovered, setIsHovered] = useState(false);
 
-  // Kalkulasi 3D tilt interaktif berbasis posisi kursor
+  // Deteksi layar sentuh / smartphone / tablet agar kartu 100% tegak lurus, simetris, dan tidak bergetar
+  const isTouchDevice = () => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth <= 768 || window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  };
+
+  // Kalkulasi 3D tilt interaktif hanya untuk desktop kursor mouse
   const handleMouseMove = (e) => {
+    if (isTouchDevice()) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -37,6 +44,7 @@ export default function HeroProfile({ onOpenCv }) {
   };
 
   const handleMouseEnter = () => {
+    if (isTouchDevice()) return;
     setIsHovered(true);
   };
 
@@ -120,11 +128,15 @@ export default function HeroProfile({ onOpenCv }) {
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              style={{
-                transform: isHovered
-                  ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-4px)`
-                  : 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)',
-              }}
+              style={
+                !isTouchDevice() && isHovered
+                  ? {
+                      transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-4px)`,
+                    }
+                  : {
+                      transform: 'none',
+                    }
+              }
             >
               {/* Inner Enclosure Glass */}
               <div className="photo-inner-enclosure">
@@ -134,7 +146,7 @@ export default function HeroProfile({ onOpenCv }) {
                   className="photo-spotlight-sheen"
                   style={{
                     background: `radial-gradient(circle at ${tilt.shineX}% ${tilt.shineY}%, rgba(255, 255, 255, 0.28) 0%, transparent 65%)`,
-                    opacity: isHovered ? 0.7 : 0,
+                    opacity: !isTouchDevice() && isHovered ? 0.7 : 0,
                   }}
                   aria-hidden="true"
                 ></div>
