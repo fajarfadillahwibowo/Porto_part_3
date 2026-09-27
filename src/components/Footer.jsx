@@ -166,8 +166,16 @@ export default function Footer() {
                 </div>
               </a>
 
-              {/* Location Item */}
-              <div className="footer-contact-row static-row">
+              {/* Location Item (Google Maps) */}
+              <a
+                href={personalInfo.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-row"
+                id="footer-contact-maps"
+                aria-label="Buka Domisili di Google Maps"
+                title="Buka Fajar House di Google Maps"
+              >
                 <div className="contact-mini-icon pin-tint">
                   <Icon name="map-pin" size={16} />
                 </div>
@@ -175,7 +183,7 @@ export default function Footer() {
                   <span className="contact-row-label">Domisili</span>
                   <span className="contact-row-val">{personalInfo.location} (Remote / Hybrid)</span>
                 </div>
-              </div>
+              </a>
 
             </div>
           </div>
@@ -203,15 +211,15 @@ export default function Footer() {
               </a>
 
               <a
-                href={personalInfo.socials.linkedin}
+                href={personalInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-icon-btn"
-                aria-label="LinkedIn Profile"
-                id="footer-social-linkedin"
-                title="LinkedIn"
+                aria-label="Instagram Profile"
+                id="footer-social-instagram"
+                title="Instagram"
               >
-                <Icon name="linkedin" size={18} />
+                <Icon name="instagram" size={18} />
               </a>
 
               <a

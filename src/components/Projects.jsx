@@ -46,89 +46,23 @@ export default function Projects() {
         {/* BENTO GRID CONTAINER */}
         <div className="bento-grid">
           {filteredProjects.map((project) => {
-            const isFeatured = project.id === 1 && activeCategory === 'Semua';
+            const isFeatured = project.id === 1;
             const projectTitle = t.projects.items[project.id]?.title || project.title;
             const projectDesc = t.projects.items[project.id]?.desc || project.description;
+            const spanClass = filteredProjects.length === 1 
+              ? 'bento-span-1 bento-single-project' 
+              : 'bento-span-1';
 
-            if (isFeatured) {
-              return (
-                <article
-                  key={project.id}
-                  className="bento-card bento-span-2 bento-card-featured reveal-on-scroll"
-                  id={`project-card-${project.id}`}
-                >
-                  {/* Media Unggulan */}
-                  <div className="bento-featured-media media-static-crisp">
-                    <span className="bento-badge featured">⭐ {t.projects.featuredBadge}</span>
-                    <img
-                      src={project.image}
-                      alt={`Tangkapan layar antarmuka ${projectTitle}`}
-                      className="project-img"
-                      loading="lazy"
-                      decoding="async"
-                      width="720"
-                      height="450"
-                    />
-                  </div>
-
-                  {/* Konten Flagship */}
-                  <div className="bento-content">
-                    <div>
-                      <h3 className="bento-title">{projectTitle}</h3>
-                      <p className="bento-description">{projectDesc}</p>
-
-                      <div className="bento-tags">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="bento-tag">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="bento-actions">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bento-link"
-                        title={t.projects.btnCode}
-                      >
-                        <Icon name="github" size={16} />
-                        <span>{t.projects.btnCode}</span>
-                      </a>
-
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bento-link demo"
-                        title={t.projects.btnDemo}
-                      >
-                        <span>{t.projects.btnDemo}</span>
-                        <Icon name="external" size={15} />
-                      </a>
-                    </div>
-
-                    {/* Baris Interaktif: Reaksi Emojis & Komentar Pengunjung */}
-                    <ProjectInteractions
-                      projectId={project.id}
-                      projectTitle={projectTitle}
-                    />
-                  </div>
-                </article>
-              );
-            }
-
-            // Kartu Bento Standar / Kompak (Span 1 kolom)
             return (
               <article
-                key={project.id}
-                className="bento-card bento-span-1 reveal-on-scroll"
+                key={`${activeCategory}-${project.id}`}
+                className={`bento-card ${spanClass} bento-card-animate ${isFeatured ? 'bento-card-featured-glow' : ''}`}
                 id={`project-card-${project.id}`}
               >
                 <div className="bento-compact-media media-static-crisp">
-                  <span className="bento-badge">{project.category}</span>
+                  <span className={`bento-badge ${isFeatured ? 'featured' : ''}`}>
+                    {isFeatured ? `⭐ ${t.projects.featuredBadge}` : project.category}
+                  </span>
                   <img
                     src={project.image}
                     alt={`Tangkapan layar antarmuka ${projectTitle}`}
@@ -160,6 +94,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bento-link"
+                      title={t.projects.btnCode}
                     >
                       <Icon name="github" size={16} />
                       <span>{t.projects.btnCode}</span>
@@ -170,6 +105,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bento-link demo"
+                      title={t.projects.btnDemo}
                     >
                       <span>{t.projects.btnDemo}</span>
                       <Icon name="external" size={15} />
@@ -188,7 +124,7 @@ export default function Projects() {
 
           {/* BENTO HIGHLIGHT CARD */}
           {activeCategory === 'Semua' && (
-            <div className="bento-card bento-span-2 bento-card-info reveal-on-scroll">
+            <div className="bento-card bento-span-3 bento-card-info bento-card-animate">
               <div className="bento-info-header">
                 <span className="section-badge" style={{ marginBottom: '8px' }}>
                   {lang === 'id' ? 'Filosofi Rekayasa' : 'Engineering Philosophy'}

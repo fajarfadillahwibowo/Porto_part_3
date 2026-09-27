@@ -101,7 +101,23 @@ export default function Contact() {
               <div className="contact-card-content">
                 <h4>{lang === 'id' ? 'Lokasi & Status Kerja' : 'Location & Work Status'}</h4>
                 <p>{personalInfo.location} — {t.hero.availability}</p>
-                <span className="skill-badge">Remote / Hybrid Friendly</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginTop: '6px' }}>
+                  <span className="skill-badge">Remote / Hybrid Friendly</span>
+                  {personalInfo.mapsUrl && (
+                    <a
+                      href={personalInfo.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-direct-link"
+                      style={{ fontSize: '0.78rem', padding: '3px 8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                      id="contact-maps-link"
+                      title="Buka Fajar House di Google Maps"
+                    >
+                      <span>Google Maps</span>
+                      <Icon name="external" size={12} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -119,14 +135,14 @@ export default function Contact() {
               </a>
 
               <a
-                href={personalInfo.socials.linkedin}
+                href={personalInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-pill"
-                id="social-pill-linkedin"
+                id="social-pill-instagram"
               >
-                <Icon name="linkedin" size={16} />
-                <span>LinkedIn</span>
+                <Icon name="instagram" size={16} />
+                <span>Instagram</span>
               </a>
 
               <a

@@ -51,15 +51,23 @@ export default function About() {
             ))}
 
             <div className="about-highlights">
-              <div className="highlight-box">
+              <a
+                href={personalInfo.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="highlight-box"
+                id="about-domisili-maps"
+                title="Buka Fajar House di Google Maps"
+                style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+              >
                 <div className="highlight-icon">
                   <Icon name="map-pin" size={20} />
                 </div>
                 <div className="highlight-content">
                   <h4>Domisili</h4>
-                  <p>{personalInfo.location}</p>
+                  <p>{personalInfo.location} <span style={{ fontSize: '0.8em', opacity: 0.7 }}>↗</span></p>
                 </div>
-              </div>
+              </a>
 
               <div className="highlight-box">
                 <div className="highlight-icon">
@@ -86,14 +94,14 @@ export default function About() {
               </a>
 
               <a
-                href={personalInfo.socials.linkedin}
+                href={personalInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="about-social-link"
-                id="about-link-linkedin"
+                id="about-link-instagram"
               >
-                <Icon name="linkedin" size={18} />
-                <span>LinkedIn Connect</span>
+                <Icon name="instagram" size={18} />
+                <span>Instagram Profile</span>
               </a>
 
               <a

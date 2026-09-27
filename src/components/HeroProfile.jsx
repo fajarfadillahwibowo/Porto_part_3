@@ -3,6 +3,7 @@ import { personalInfo } from '../data/portfolioData';
 import { Icon } from './TechIcons';
 import { ShinyButton } from '@/components/ui/shiny-button';
 import { useLanguageTheme } from '../context/LanguageThemeContext';
+import HeroTerminal from './HeroTerminal';
 import '../styles/heroProfile.css';
 
 /**
@@ -73,20 +74,8 @@ export default function HeroProfile({ onOpenCv }) {
               {t.hero.greeting} <strong>{personalInfo.name}</strong>, {t.hero.role}. {t.hero.description}
             </p>
 
-            {/* 3 Pilar Nilai Rekayasa Perangkat Lunak (Bento Micro-Cards) */}
-            <div className="hero-value-pillars">
-              {t.hero.pillars.map((pillar, i) => (
-                <div className="pillar-card" key={i}>
-                  <div className="pillar-header">
-                    <div className="pillar-icon">
-                      <Icon name="check" size={16} />
-                    </div>
-                    <h4 className="pillar-title">{pillar.title}</h4>
-                  </div>
-                  <p className="pillar-desc">{pillar.desc}</p>
-                </div>
-              ))}
-            </div>
+            {/* Interactive Cyber Developer Terminal (Animated Live Console) */}
+            <HeroTerminal />
 
             {/* Tombol Aksi Utama (CTA) */}
             <div className="hero-action-group">
@@ -114,21 +103,6 @@ export default function HeroProfile({ onOpenCv }) {
               )}
             </div>
 
-            {/* Metrik Rekayasa (Strip Stats) */}
-            <div className="hero-stats-strip">
-              <div className="hero-stat-box">
-                <span className="hero-stat-number">{t.hero.stats.yearsValue}</span>
-                <span className="hero-stat-label">{t.hero.stats.yearsLabel}</span>
-              </div>
-              <div className="hero-stat-box">
-                <span className="hero-stat-number">{t.hero.stats.projectsValue}</span>
-                <span className="hero-stat-label">{t.hero.stats.projectsLabel}</span>
-              </div>
-              <div className="hero-stat-box">
-                <span className="hero-stat-number">{t.hero.stats.qualityValue}</span>
-                <span className="hero-stat-label">{t.hero.stats.qualityLabel}</span>
-              </div>
-            </div>
 
           </div>
 
@@ -212,14 +186,14 @@ export default function HeroProfile({ onOpenCv }) {
               </a>
 
               <a
-                href={personalInfo.socials.linkedin}
+                href={personalInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-dock-btn"
-                aria-label="LinkedIn Profile"
+                aria-label="Instagram Profile"
               >
-                <Icon name="linkedin" size={17} />
-                <span>LinkedIn</span>
+                <Icon name="instagram" size={17} />
+                <span>Instagram</span>
               </a>
 
               <a

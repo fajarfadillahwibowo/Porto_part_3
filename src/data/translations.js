@@ -35,20 +35,37 @@ export const translations = {
       greeting: "Halo! Saya",
       role: "seorang Web Developer & Software Engineer",
       description: "Berdedikasi dalam menerjemahkan tantangan kompleks menjadi platform digital yang cepat, tangguh, dan elegan. Mengutamakan arsitektur sistem yang kokoh, kode yang bersih, serta pengalaman interaksi yang intuitif.",
-      pillars: [
-        {
-          title: "Arsitektur Skalabel",
-          desc: "Struktur kode modular dan andal yang dirancang siap bertumbuh secara efisien.",
+      terminal: {
+        badge: "LIVE REPL",
+        tabs: {
+          developer: "developer.ts",
+          terminal: "terminal.sh",
+          metrics: "status.json",
         },
-        {
-          title: "Performa & Presisi",
-          desc: "Optimasi kecepatan eksekusi tinggi dan respons antarmuka pengguna yang mulus.",
+        developerCode: {
+          comment: "// 🚀 Cetak Biru Rekayasa Web Skalabel",
+          name: "Fajar Fadillah Wibowo",
+          role: "Web Developer & Software Engineer",
+          stack: ["Laravel 11", "React.js", "MySQL", "Tailwind"],
+          architecture: "Arsitektur Modular & API Berkinerja Tinggi",
+          status: "Siap untuk Proyek & Tantangan Berdampak Tinggi ⚡",
         },
-        {
-          title: "Solusi Berdaya Guna",
-          desc: "Mengubah tantangan operasional menjadi platform digital otomatis dan teruji.",
+        terminalLines: [
+          "$ fajar-dev build --target=production --opt-speed",
+          "[INFO] Memuat arsitektur modular & skema database...",
+          "✓ Backend: Clean Architecture & Optimasi Query SQL",
+          "✓ Frontend: Antarmuka Responsif & Respons Sub-100ms",
+          "✓ Status: 0 Galat | 100% Siap untuk Penerapan Produksi 🚀",
+        ],
+        metrics: {
+          uptime: "99.98% Keandalan Sistem",
+          experience: "2+ Tahun Pengalaman Rekayasa",
+          focus: "Mengubah Kompleksitas Bisnis Menjadi Kode Efisien",
+          availability: "Terbuka untuk Kolaborasi & Proyek Baru",
         },
-      ],
+        copied: "Disalin!",
+        copyTooltip: "Salin cuplikan kode",
+      },
       ctaProjects: "Jelajahi Karya Saya",
       ctaDiscuss: "Mulai Diskusi",
       ctaPreviewCv: "Pratinjau CV",
@@ -171,20 +188,37 @@ export const translations = {
       greeting: "Hello! I'm",
       role: "a Web Developer & Software Engineer",
       description: "Dedicated to translating complex challenges into fast, resilient, and elegant digital platforms. Prioritizing robust system architecture, clean code, and intuitive user experiences.",
-      pillars: [
-        {
-          title: "Scalable Architecture",
-          desc: "Modular, reliable code structures engineered to grow efficiently.",
+      terminal: {
+        badge: "LIVE REPL",
+        tabs: {
+          developer: "developer.ts",
+          terminal: "terminal.sh",
+          metrics: "status.json",
         },
-        {
-          title: "Performance & Precision",
-          desc: "Optimized for lightning-fast execution and seamless interface responsiveness.",
+        developerCode: {
+          comment: "// 🚀 Scalable Web Engineering Blueprint",
+          name: "Fajar Fadillah Wibowo",
+          role: "Web Developer & Software Engineer",
+          stack: ["Laravel 11", "React.js", "MySQL", "Tailwind"],
+          architecture: "Modular MVC & High-Throughput REST APIs",
+          status: "Ready for High-Impact Roles & Projects ⚡",
         },
-        {
-          title: "Impactful Solutions",
-          desc: "Transforming operational bottlenecks into automated, proven digital platforms.",
+        terminalLines: [
+          "$ fajar-dev build --target=production --opt-speed",
+          "[INFO] Initializing modular architecture & schema...",
+          "✓ Backend: Clean Architecture & Optimized SQL Queries",
+          "✓ Frontend: Responsive UI & Sub-100ms Response Time",
+          "✓ Status: 0 Errors | 100% Ready for Production Deployment 🚀",
+        ],
+        metrics: {
+          uptime: "99.98% System Reliability",
+          experience: "2+ Years Engineering Experience",
+          focus: "Turning Business Complexity into Scalable Code",
+          availability: "Open for New Innovations & Collaboration",
         },
-      ],
+        copied: "Copied!",
+        copyTooltip: "Copy snippet",
+      },
       ctaProjects: "Explore My Work",
       ctaDiscuss: "Start Discussion",
       ctaPreviewCv: "Preview CV",

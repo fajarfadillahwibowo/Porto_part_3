@@ -310,6 +310,11 @@
   transform: translateY(-2px);
 }
 
+.footer-contact-row#footer-contact-maps:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  background: rgba(168, 85, 247, 0.08);
+}
+
 .contact-mini-icon {
   width: 32px;
   height: 32px;

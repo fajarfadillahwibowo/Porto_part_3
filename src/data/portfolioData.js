@@ -29,6 +29,7 @@ export const personalInfo = {
 
   // Metadata profil
   location: "Indonesia",
+  mapsUrl: "https://www.google.com/maps/place/Fajar+House/@-4.1219779,104.6592948,17z/data=!3m1!4b1!4m6!3m5!1s0x2e39230071d63375:0x616f9fe4fc332260!8m2!3d-4.1219779!4d104.6616247!16s%2Fg%2F11nr10f39f?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
   status: "Terbuka untuk Proyek & Kolaborasi",
   experienceYears: "2+ Tahun",
   projectsCompleted: "3+ Solusi Teruji",
@@ -45,9 +46,11 @@ export const personalInfo = {
   // Tautan Media Sosial & Kontak Langsung (Nomor resmi: 085607746031)
   socials: {
     github: "https://github.com/fajarfadillahwibowo",
-    linkedin: "https://linkedin.com/in/fajarfadillahwibowo",
+    instagram: "https://www.instagram.com/fajarfdlwb_?stkn=ZDNlYmUwOXBzaTJ5&utm_source=qr",
+    linkedin: "https://www.instagram.com/fajarfdlwb_?stkn=ZDNlYmUwOXBzaTJ5&utm_source=qr",
     whatsapp: "https://wa.me/6285607746031",
-    email: "fajarfadillahwibowo@gmail.com"
+    email: "fajarfadillahwibowo@gmail.com",
+    maps: "https://www.google.com/maps/place/Fajar+House/@-4.1219779,104.6592948,17z/data=!3m1!4b1!4m6!3m5!1s0x2e39230071d63375:0x616f9fe4fc332260!8m2!3d-4.1219779!4d104.6616247!16s%2Fg%2F11nr10f39f?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
   }
 };
 
@@ -153,7 +156,7 @@ export const projectsData = [
     title: "Sistem Penerimaan Murid Baru (SPMB)",
     category: "Full-Stack",
     description: "Sistem pendaftaran murid baru berbasis web yang mengotomatisasi proses seleksi dan administrasi penerimaan dengan antarmuka responsif dan backend terintegrasi.",
-    image: "./project-1.jpg",
+    image: "./project-spmb.png",
     tags: ["Laravel 13", "PHP 8.4", "React.js", "Tailwind CSS", "MySQL"],
     demoUrl: "https://github.com/fajarfadillahwibowo/spmb-laravel-react",
     githubUrl: "https://github.com/fajarfadillahwibowo/spmb-laravel-react",
@@ -164,7 +167,7 @@ export const projectsData = [
     title: "Website PAMSIMAS Desa (Air Minum & Sanitasi)",
     category: "Web App",
     description: "Platform digital untuk manajemen data penyediaan air minum dan sanitasi berbasis masyarakat tingkat desa dengan pengelolaan basis data terstruktur.",
-    image: "./project-2.jpg",
+    image: "./project-pamsimas.png",
     tags: ["Laravel 12", "PHP 8.4", "Tailwind CSS", "MySQL", "JavaScript"],
     demoUrl: "https://github.com/fajarfadillahwibowo/pamsimas-desa",
     githubUrl: "https://github.com/fajarfadillahwibowo/pamsimas-desa",

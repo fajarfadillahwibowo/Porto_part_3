@@ -77,10 +77,31 @@
 }
 
 /* 
-   BENTO VARIATION 1: Hero Flagship Card (Spans 2 Columns)
+   BENTO VARIATION 1: Hero Flagship Card (Spans 2 or 3 Columns)
 */
 .bento-span-2 {
   grid-column: span 2;
+}
+
+.bento-span-3,
+.bento-span-full {
+  grid-column: 1 / -1;
+}
+
+/* Smooth Enter Animation for Filtered Bento Cards */
+.bento-card-animate {
+  animation: bentoCardIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bentoCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .bento-card-featured {
@@ -125,8 +146,28 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
   display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-compact-media .project-img {
+  transform: scale(1.03);
+}
+
+.bento-single-project {
+  grid-column: 2;
+}
+
+@media (max-width: 992px) {
+  .bento-single-project {
+    grid-column: auto;
+  }
+}
+
+.bento-card-featured-glow {
+  border-color: rgba(96, 165, 250, 0.3);
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(37, 99, 235, 0.12);
 }
 
 /* Category Badge in Bento Media */
@@ -346,9 +387,11 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  .bento-span-3,
   .bento-span-2,
-  .bento-span-1 {
-    grid-column: span 1;
+  .bento-span-1,
+  .bento-single-project {
+    grid-column: span 1 !important;
   }
   .bento-card-featured {
     grid-template-columns: 1fr;
