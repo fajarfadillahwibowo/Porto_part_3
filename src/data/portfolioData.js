@@ -153,12 +153,12 @@ export const skillsData = [
 export const projectsData = [
   {
     id: 1,
-    title: "Sistem Penerimaan Murid Baru (SPMB)",
+    title: "Sistem Penerimaan Murid Baru (SPMB) MI Nurussalam",
     category: "Full-Stack",
-    description: "Sistem pendaftaran murid baru berbasis web yang mengotomatisasi proses seleksi dan administrasi penerimaan dengan antarmuka responsif dan backend terintegrasi.",
+    description: "Sistem pendaftaran murid baru berbasis web untuk MI Nurussalam Sidogede yang mengotomatisasi proses seleksi dan administrasi penerimaan dengan antarmuka responsif dan backend terintegrasi.",
     image: "./project-spmb.png",
     tags: ["Laravel 13", "PHP 8.4", "React.js", "Tailwind CSS", "MySQL"],
-    demoUrl: "https://github.com/fajarfadillahwibowo/spmb-laravel-react",
+    demoUrl: "https://minurussalamsidogede.sch.id/",
     githubUrl: "https://github.com/fajarfadillahwibowo/spmb-laravel-react",
     featured: true
   },

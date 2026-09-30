@@ -63,20 +63,39 @@ export default function Projects() {
                   <span className={`bento-badge ${isFeatured ? 'featured' : ''}`}>
                     {isFeatured ? `⭐ ${t.projects.featuredBadge}` : project.category}
                   </span>
-                  <img
-                    src={project.image}
-                    alt={`Tangkapan layar antarmuka ${projectTitle}`}
-                    className="project-img"
-                    loading="lazy"
-                    decoding="async"
-                    width="600"
-                    height="340"
-                  />
+                  <a
+                    href={project.demoUrl || project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bento-media-link"
+                    title={`Kunjungi ${projectTitle}`}
+                    tabIndex="-1"
+                  >
+                    <img
+                      src={project.image}
+                      alt={`Tangkapan layar antarmuka ${projectTitle}`}
+                      className="project-img"
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="340"
+                    />
+                  </a>
                 </div>
 
                 <div className="bento-content">
                   <div>
-                    <h3 className="bento-title">{projectTitle}</h3>
+                    <h3 className="bento-title">
+                      <a
+                        href={project.demoUrl || project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bento-title-link"
+                        title={`Kunjungi ${projectTitle}`}
+                      >
+                        {projectTitle}
+                      </a>
+                    </h3>
                     <p className="bento-description">{projectDesc}</p>
 
                     <div className="bento-tags">

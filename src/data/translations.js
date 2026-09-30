@@ -97,8 +97,8 @@ export const translations = {
       featuredBadge: "Proyek Unggulan",
       items: {
         1: {
-          title: "Sistem Penerimaan Murid Baru (SPMB)",
-          desc: "Sistem pendaftaran murid baru berbasis web yang mengotomatisasi proses seleksi dan administrasi penerimaan dengan antarmuka responsif dan backend terintegrasi.",
+          title: "Sistem Penerimaan Murid Baru (SPMB) MI Nurussalam",
+          desc: "Sistem pendaftaran murid baru berbasis web untuk MI Nurussalam Sidogede yang mengotomatisasi proses seleksi dan administrasi penerimaan dengan antarmuka responsif dan backend terintegrasi.",
         },
         2: {
           title: "Website PAMSIMAS Desa (Air Minum & Sanitasi)",
@@ -250,8 +250,8 @@ export const translations = {
       featuredBadge: "Featured Project",
       items: {
         1: {
-          title: "Student Admission Information System (SPMB)",
-          desc: "A web-based student enrollment platform that automates selection and administrative processing with responsive interfaces and integrated backend.",
+          title: "Student Admission Information System (SPMB) MI Nurussalam",
+          desc: "A web-based student enrollment platform for MI Nurussalam Sidogede that automates selection and administrative processing with responsive interfaces and integrated backend.",
         },
         2: {
           title: "Village Water & Sanitation System (PAMSIMAS)",
