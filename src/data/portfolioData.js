@@ -180,8 +180,8 @@ export const projectsData = [
     description: "Sistem penyimpanan dan pengelolaan arsip media mahasiswa berbasis web dengan fitur unggah, kategorisasi, dan pencarian data media secara efisien.",
     image: "./project-3.jpg",
     tags: ["Laravel 12", "PHP 8.3", "Bootstrap CSS", "MySQL", "JavaScript"],
-    demoUrl: "https://github.com/fajarfadillahwibowo/repository-media-mahasiswa",
-    githubUrl: "https://github.com/fajarfadillahwibowo/repository-media-mahasiswa",
+    demoUrl: "https://github.com/fajarfadillahwibowo/market_place_page",
+    githubUrl: "https://github.com/fajarfadillahwibowo/market_place_page",
     featured: true
   }
 ];
