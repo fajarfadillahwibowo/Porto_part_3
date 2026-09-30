@@ -142,15 +142,24 @@
 
 @media (max-width: 900px) {
   .contact-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 600px) {
   .contact-form-col {
     padding: 24px 18px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .form-grid-2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 }

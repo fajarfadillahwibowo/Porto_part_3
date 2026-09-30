@@ -12,6 +12,9 @@
   gap: 20px;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 16px 0 32px 0;
   margin-bottom: 48px;
   /* Pure CSS Edge Fade Mask */
@@ -22,9 +25,13 @@
 }
 
 .marquee-track {
-  display: flex;
-  width: max-content;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: -webkit-max-content !important;
+  width: max-content !important;
   will-change: transform;
+  user-select: none;
 }
 
 .marquee-track:hover {
@@ -61,20 +68,23 @@
 
 /* Marquee Pill Card */
 .marquee-item {
-  display: inline-flex;
+  display: inline-flex !important;
+  flex-direction: row !important;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-full);
   padding: 10px 22px 10px 14px;
   margin: 0 10px;
-  white-space: nowrap;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   cursor: default;
+  box-sizing: border-box;
 }
 
 .marquee-item:hover {
@@ -218,27 +228,45 @@
   box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.7), 0 0 24px rgba(130, 190, 59, 0.2);
 }
 
-/* Reduced Motion Override */
+/* Reduced Motion & Power-Saving Optimization:
+   Tetap pertahankan orientasi horizontal 2-baris tanpa membungkus (wrap) menjadi tumpukan vertikal */
 @media (prefers-reduced-motion: reduce) {
-  .marquee-left,
-  .marquee-right {
-    animation: none !important;
-  }
   .marquee-track {
+    flex-wrap: nowrap !important;
+    width: -webkit-max-content !important;
+    width: max-content !important;
     overflow-x: auto;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .marquee-track::-webkit-scrollbar {
+    display: none;
+  }
+  /* Gerakan sangat lambat dan halus (calm crawl) agar tetap proporsional dan tidak pusing */
+  .marquee-left {
+    animation: scrollLeft 60s linear infinite !important;
+  }
+  .marquee-right {
+    animation: scrollRight 60s linear infinite !important;
   }
 }
 
 @media (max-width: 640px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
+  .marquee-container {
+    gap: 14px;
+    padding: 8px 0 24px 0;
+    margin-bottom: 36px;
+  }
+  .marquee-track {
+    flex-wrap: nowrap !important;
+    width: -webkit-max-content !important;
+    width: max-content !important;
   }
   .marquee-item {
     padding: 8px 16px 8px 10px;
     margin: 0 6px;
+    flex-shrink: 0 !important;
   }
   .marquee-icon-wrap {
     width: 36px;
@@ -246,6 +274,26 @@
   }
   .marquee-title {
     font-size: 0.85rem;
+  }
+  .marquee-badge {
+    font-size: 0.65rem;
+  }
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .skill-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 18px 14px;
+    gap: 14px;
+  }
+  .skill-icon-box {
+    width: 44px;
+    height: 44px;
   }
 }
 

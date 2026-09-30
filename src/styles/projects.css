@@ -384,23 +384,37 @@
 
 @media (max-width: 768px) {
   .bento-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .bento-span-3,
   .bento-span-2,
   .bento-span-1,
   .bento-single-project {
     grid-column: span 1 !important;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .bento-card-featured {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .bento-features-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .bento-content {
     padding: 20px;
+    box-sizing: border-box;
+    min-width: 0;
   }
 }
 

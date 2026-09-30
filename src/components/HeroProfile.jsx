@@ -54,12 +54,13 @@ export default function HeroProfile({ onOpenCv }) {
   };
 
   return (
-    <section className="hero-profile-section" id="beranda" aria-label="Beranda dan Profil Fajar Fadillah Wibowo">
+    <>
       {/* Target jangkar untuk navigasi 'Tentang' agar tautan navbar tetap berfungsi mulus */}
       <span id="tentang" style={{ position: 'absolute', top: '20px', left: 0, visibility: 'hidden' }} aria-hidden="true"></span>
 
-      <div className="container hero-profile-container">
-        <div className="hero-profile-grid">
+      <section className="hero-profile-section" id="beranda" aria-label="Beranda dan Profil Fajar Fadillah Wibowo">
+        <div className="container hero-profile-container">
+          <div className="hero-profile-grid">
           
           {/* ================================================================
               KOLOM KIRI: Narasi Profesional, Prinsip Rekayasa & CTA
@@ -234,5 +235,6 @@ export default function HeroProfile({ onOpenCv }) {
         </div>
       </div>
     </section>
+  </>
   );
 }

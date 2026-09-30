@@ -91,9 +91,9 @@
    5. Accessible Motion: Prefers Reduced Motion (Bab 5 PRD)
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *:not(.marquee-track):not(.marquee-left):not(.marquee-right),
+  *:not(.marquee-track):not(.marquee-left):not(.marquee-right)::before,
+  *:not(.marquee-track):not(.marquee-left):not(.marquee-right)::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

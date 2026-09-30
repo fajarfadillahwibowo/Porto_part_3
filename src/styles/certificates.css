@@ -464,7 +464,15 @@
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .certificates-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .certificate-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 }
 

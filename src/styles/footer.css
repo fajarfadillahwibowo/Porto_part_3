@@ -522,8 +522,11 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 36px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .footer-cta-banner {
     flex-direction: column;
@@ -555,8 +558,11 @@
     width: 100%;
   }
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .footer-bottom-bar {
     flex-direction: column;
