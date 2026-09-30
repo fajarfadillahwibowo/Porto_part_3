@@ -169,8 +169,8 @@ export const projectsData = [
     description: "Platform digital untuk manajemen data penyediaan air minum dan sanitasi berbasis masyarakat tingkat desa dengan pengelolaan basis data terstruktur.",
     image: "./project-pamsimas.png",
     tags: ["Laravel 12", "PHP 8.4", "Tailwind CSS", "MySQL", "JavaScript"],
-    demoUrl: "https://github.com/fajarfadillahwibowo/pamsimas-desa",
-    githubUrl: "https://github.com/fajarfadillahwibowo/pamsimas-desa",
+    demoUrl: "https://github.com/fajarfadillahwibowo/pamsimas_desa",
+    githubUrl: "https://github.com/fajarfadillahwibowo/pamsimas_desa",
     featured: true
   },
   {
